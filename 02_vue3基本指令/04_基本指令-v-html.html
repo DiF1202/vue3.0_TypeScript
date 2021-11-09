@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-11-08 22:03:48
+ * @LastEditTime: 2021-11-08 22:39:14
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \vue3.0+ts\02_vue3基本指令\04_基本指令-v-html.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2 v-html="message"></h2>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const App = {
+      template: '#my-app',
+      data() {
+        return {
+          message: '<span style="color:red">哈哈哈哈哈</span>'
+        }
+      },
+    }
+    Vue.createApp(App).mount("#app")
+  </script>
+</body>
+
+</html>

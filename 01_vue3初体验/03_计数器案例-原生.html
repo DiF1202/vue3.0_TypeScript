@@ -1,0 +1,48 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-10-30 15:38:54
+ * @LastEditTime: 2021-10-30 15:47:01
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue3.0+ts\01_vue3初体验\03_计数器案例-原生.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2 class="counter"></h2>
+    <button class="decrement">-</button>
+    <button class="increment">+</button>
+
+    <script>
+        //1.获取所有元素
+        const counterEl = document.querySelector('.counter')
+        const incrementEl = document.querySelector('.increment')
+        const decrementEl = document.querySelector('.decrement')
+
+        //2.定义变量
+        let counter = 0
+        counterEl.innerHTML = counter;
+
+        //3.绑定事件
+        incrementEl.onclick = () => {
+            counter += 1
+            counterEl.innerHTML = counter;
+        }
+        decrementEl.onclick = () => {
+            counter -= 1
+            counterEl.innerHTML = counter;
+        }
+
+    </script>
+</body>
+
+</html>
