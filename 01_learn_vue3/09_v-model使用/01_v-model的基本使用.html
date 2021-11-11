@@ -11,9 +11,10 @@
   <div id="app"></div>
 
   <template id="my-app">
-    <h2>{{fullName}}</h2>
-    <h2>{{result}}</h2>
-    <h2>{{reverseMessage}}</h2>
+    <!-- 1.v-bind value的绑定 2.监听input事件, 更新message的值 -->
+    <!-- <input type="text" :value="message" @input="inputChange"> -->
+    <input type="text" v-model="message">
+    <h2>{{message}}</h2>
   </template>
 
   <script src="../js/vue.js"></script>
@@ -22,22 +23,12 @@
       template: '#my-app',
       data() {
         return {
-          firstName: "Kobe",
-          lastName: "Bryant",
-          score: 80,
           message: "Hello World"
         }
       },
-      computed: {
-        // 定义了一个计算属性叫fullname
-        fullName() {
-          return this.firstName + " " + this.lastName;
-        },
-        result() {
-          return this.score >= 60 ? "及格": "不及格";
-        },
-        reverseMessage() {
-          return this.message.split(" ").reverse().join(" ");
+      methods: {
+        inputChange(event) {
+          this.message = event.target.value;
         }
       }
     }

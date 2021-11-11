@@ -1,0 +1,53 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-11-11 15:27:19
+ * @LastEditTime: 2021-11-11 15:47:34
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \vue3.0+ts\10_组件化开发\01_复杂逻辑堆积起来.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app"></div>
+
+  <template id="my-app">
+    <input type="text" v-model="message">
+    <h2>{{message}}</h2>
+
+    <h2>{{title}}</h2>
+    <p>{{desc}}</p>
+
+    <button @click="btnClick">按钮点击</button>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+
+    const App = {
+      template: '#my-app',
+      data() {
+        return {
+          message: "Hello World",
+          title: "哈哈哈哈",
+          desc: "我是内容, 呵呵呵呵呵"
+        }
+      },
+      methods: {
+        btnClick() {
+          console.log("按钮发生点击");
+        }
+      }
+    }
+
+    Vue.createApp(App).mount('#app');
+  </script>
+</body>
+</html>

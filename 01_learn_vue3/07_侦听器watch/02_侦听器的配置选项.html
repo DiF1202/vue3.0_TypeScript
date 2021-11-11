@@ -1,0 +1,72 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-11-10 01:31:21
+ * @LastEditTime: 2021-11-11 12:06:26
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \vue3.0+ts\07_侦听器watch\02_侦听器的配置选项.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>{{info.name}}</h2>
+    <button @click="changeInfo">改变整个info</button>
+    <button @click="changeInfoName">改变整个info.name</button>
+    <button @click="changeInfoDeep">改变整个info.hobby.play</button>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    const App = {
+      template: '#my-app',
+      data() {
+        return {
+          message: 'hello world',
+          info: {
+            name: 'hdf',
+            age: '18',
+            hobby: {
+              "play": "guitar"
+            }
+          }
+        }
+      },
+      methods: {
+        changeInfo() {
+          this.info = { name: 'swq' }
+        },
+        changeInfoName() {
+          this.info.name = 'swq12312321312'
+        },
+        changeInfoDeep() {
+          this.info.hobby.play = 'shumabaobei'
+        }
+      },
+      watch: {
+        // info(newValue, oldValue) {
+        //   console.log("newValue:", newValue, "oldValue:", oldValue);
+        // }
+        info: {
+          handler: function (newValue, oldValue) {
+            console.log("newValue:", newValue, "oldValue:", oldValue);
+          },
+          deep: true,
+          immediate: true
+        }
+      }
+    }
+    Vue.createApp(App).mount("#app")
+  </script>
+</body>
+
+</html>

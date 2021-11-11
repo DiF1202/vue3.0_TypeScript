@@ -1,13 +1,23 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-11-09 22:31:49
+ * @LastEditTime: 2021-11-10 00:57:53
+ * @LastEditors: Please set LastEditors
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: \vue3.0+ts\06_计算属性\05_computed的setter和getter.html
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  
+
   <div id="app"></div>
 
   <template id="my-app">
@@ -31,15 +41,17 @@
         fullName() {
           return this.firstName + " " + this.lastName;
         },
-        
+
         // fullName的getter和setter方法
         fullName: {
-          get: function() {
+          get: function () {
             return this.firstName + " " + this.lastName;
           },
-          set: function(newValue) {
+          set: function (newValue) {
             console.log(newValue);
             const names = newValue.split(" ");
+            console.log(names);
+            // const names = newValue.slice();
             this.firstName = names[0];
             this.lastName = names[1];
           }
@@ -55,4 +67,5 @@
     Vue.createApp(App).mount('#app');
   </script>
 </body>
+
 </html>
